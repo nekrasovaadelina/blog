@@ -1,31 +1,24 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!
+  expose(:article)
+  expose(:comment)
+  expose(:comments) {article.comments}
 
   def create
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params)
-    @comment.user_id = current_user.id
+    comment = article.comments.create(comment_params)
+    comment.user_id = current_user.id
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to article_path(@article), notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { redirect_to article_path(@article), notice: "Comment can't be blank" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if comment.save
+      redirect_to article_path(article), notice: 'Comment was successfully created.'
+    else
+      redirect_to article_path(article), notice: comment.errors.full_messages.join(", ")
     end
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.find(params[:id])
-    authorize @comment, :own?
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to article_path(@article), notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    authorize comment, :own?
+    comment.destroy
+    redirect_to article_path(article), notice: 'Comment was successfully destroyed.'
   end
 
   private

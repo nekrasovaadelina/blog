@@ -9,7 +9,7 @@ table
       th colspan="3"
 
   tbody
-    - @articles.each do |article|
+    - articles.includes(:user).each do |article|
       tr
         td = article.title
         td = article.text

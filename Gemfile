@@ -48,7 +48,7 @@ end
 group :test do
   gem "capybara"
   gem "capybara-webkit"
-  gem "codeclimate-test-reporter", require: false
+  gem "codeclimate-test-reporter", group: :test, require: nil
   gem "database_cleaner"
   gem "email_spec"
   gem "formulaic"
