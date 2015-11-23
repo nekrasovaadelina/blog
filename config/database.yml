@@ -1,19 +1,15 @@
-defaults: &defaults
-  adapter: postgresql
-  encoding: unicode
-  min_messages: warning
-  timeout: 5000
-  pool: <%= [ENV.fetch("MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
-
 development:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_dev
-  <<: *defaults
+  adapter: postgresql
+  encoding: utf8
+  database: blog_dev
+  username: postgres
+  password: postgres
+  host: localhost
 
 test:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_test
-  <<: *defaults
-
-production: &deploy
-  <<: *defaults
-
-staging: *deploy
+  adapter: postgresql
+  encoding: utf8
+  database: blog_test
+  username: postgres
+  password: postgres
+  host: localhost

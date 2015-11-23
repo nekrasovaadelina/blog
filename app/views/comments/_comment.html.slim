@@ -1,0 +1,12 @@
+strong' User:
+= comment.user.full_name
+
+br
+
+strong' Comment:
+p = comment.text
+-if user_signed_in? && policy(comment).own?
+  =' link_to "Delete", [comment.article, comment],
+            method: :delete,
+            data: { confirm: "Are you sure?" }
+br
