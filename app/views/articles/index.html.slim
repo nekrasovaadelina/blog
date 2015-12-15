@@ -6,9 +6,15 @@
     = render articles.includes(:user)
 
   .medium-6.columns.end
-    | Something interesting?
-    br
-    | Tell us!
-    '
-    = link_to "New article", new_article_path
+    - if user_signed_in?
+      | Something interesting?
+      br
+      | Tell us!
+      '
+      = link_to "New article", new_article_path
+    - else
+      | Please
+      '
+      =' active_link_to "Sign in", new_user_session_path
+      | to create your own articles
 

@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # expose_decorated(:articles)
   expose(:article)
   expose(:articles)
+  expose(:users) { User.all }
 
   def create
     article = Article.new(article_params)
