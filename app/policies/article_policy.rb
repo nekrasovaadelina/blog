@@ -6,7 +6,7 @@ class ArticlePolicy
     @article = article
   end
 
-  def own?
+  def manage?
     @user.id == @article.user_id
   end
 end

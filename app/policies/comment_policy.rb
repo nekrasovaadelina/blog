@@ -6,7 +6,7 @@ class CommentPolicy
     @comment = comment
   end
 
-  def own?
+  def manage?
     @user.id == @comment.user_id
   end
 end

@@ -8,6 +8,6 @@ h2 = article.title
   '
   = article.user
 =' link_to "Show", article
-- if user_signed_in? && policy(article).own?
+- if user_signed_in? && policy(article).manage?
   =' link_to "Edit", edit_article_path(article)
   =' link_to "Delete", article, method: :delete, data: {conmirm: "Are you sure?"}

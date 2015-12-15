@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_user! only: :destroy
   # expose_decorated(:article)
   # expose_decorated(:comment)
   # expose_decorated(:comments) {article.comments}
@@ -19,13 +20,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    authorize comment, :own?
     comment.destroy
     redirect_to article_path(article), notice: "Comment was successfully destroyed."
   end
 
   private
 
+    def authorize_user!
+      redirect_to(root_path) unless CommentPolicy.new(current_user, article).manage?   
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:text, :user_id, :article_id)
