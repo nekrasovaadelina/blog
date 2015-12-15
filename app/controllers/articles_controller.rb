@@ -1,40 +1,40 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authorize_user!, only: [:edit, :update, :destroy] 
   # expose_decorated(:article)
   # expose_decorated(:articles)
   expose(:article)
   expose(:articles)
-  expose(:users) { User.all }
 
   def create
     article = Article.new(article_params)
     article.user_id = current_user.id
-
     if article.save
-      redirect_to article, notice: "Article was successfully created."
+      respond_with(article)
     else
-      redirect_to new_article_path, notice: article.errors.full_messages.join(", ")
+      redirect_to new_article_path, alert: article.errors.full_messages.join(", ")
     end
   end
 
   def update
-    authorize article, :own?
     if article.update(article_params)
-      redirect_to article, notice: "Article was successfully updated."
+      respond_with(article)
     else
-      redirect_to edit_article_path, notice: article.errors.full_messages.join(", ")
+      redirect_to edit_article_path, alert: article.errors.full_messages.join(", ")
     end
   end
 
   def destroy
-    authorize article, :own?
     article.destroy
-    redirect_to articles_url, notice: "Article was successfully destroyed."
+    respond_with(article)
   end
 
   private
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def authorize_user!
+      redirect_to(root_path) unless ArticlePolicy.new(current_user, article).manage?   
+    end
+
     def article_params
       params.require(:article).permit(:title, :text, :user_id)
     end
