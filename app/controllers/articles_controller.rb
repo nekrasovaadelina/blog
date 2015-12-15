@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
+  #expose_decorated(:article)
+  #expose_decorated(:articles)
   expose(:article)
   expose(:articles)
 

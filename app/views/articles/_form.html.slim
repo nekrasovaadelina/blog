@@ -1,9 +1,7 @@
-= form_for(article) do |f|
+= simple_form_for(article) do |f|
 
-  div class="field"
-    = f.label :title
-    = f.text_area :title
-    = f.label :text
-    = f.text_area :text
-  div class="actions"
-    = f.submit
+  .form_inputs
+    = f.input :title, required: false
+    = f.input :text, required: false
+  .form-actions
+    = f.button :submit, "Update article"

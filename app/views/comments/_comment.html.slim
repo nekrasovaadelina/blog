@@ -1,12 +1,13 @@
-strong' User:
-= comment.user.full_name
-
-br
-
 strong' Comment:
 p = comment.text
+| Posted by
+'
+= article.user
+br
+/= comment.published_at
 -if user_signed_in? && policy(comment).own?
   =' link_to "Delete", [comment.article, comment],
             method: :delete,
             data: { confirm: "Are you sure?" }
+  br
 br

@@ -1,23 +1,14 @@
-h1 Articles
+.row
+  h1 align="center" Articles
 
-table
-  thead
-    tr
-      th Title
-      th Text
-      th User
-      th colspan="3"
+.row
+  .medium-6.columns
+    = render articles.includes(:user)
 
-  tbody
-    - articles.includes(:user).each do |article|
-      tr
-        td = article.title
-        td = article.text
-        td = article.user.full_name
-        td = link_to "Show", article
-        -if user_signed_in? && policy(article).own?
-          td = link_to "Edit", edit_article_path(article)
-          td = link_to "Destroy", article, method: :delete, data: { conmirm: "Are you sure?" }
-
-= link_to "New article", new_article_path
+  .medium-6.columns.end
+    | Something interesting?
+    br
+    | Tell us!
+    '
+    = link_to "New article", new_article_path
 

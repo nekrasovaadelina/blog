@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!
+  #expose_decorated(:article)
+  #expose_decorated(:comment)
+  #expose_decorated(:comments) {article.comments}
   expose(:article)
   expose(:comment)
   expose(:comments) {article.comments}

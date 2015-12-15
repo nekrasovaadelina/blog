@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby "2.2.3"
-
 gem "rails", "4.2.3"
 gem "pg"
 gem "mysql2"
@@ -25,9 +23,11 @@ gem "slim"
 
 # all other gems
 gem "decent_exposure"
+gem "decent_decoration"
 gem "devise"
 gem "google-analytics-rails"
 gem "interactor"
+gem "fast_stack"
 gem "flamegraph"
 gem "kaminari"
 gem "memory_profiler"
@@ -38,7 +38,6 @@ gem "rack-canonical-host"
 gem "responders"
 gem "rollbar"
 gem "seedbank"
-gem "stackprof"
 
 group :staging, :production do
   gem "newrelic_rpm"
@@ -64,6 +63,7 @@ group :development, :test do
   gem "byebug"
   gem "coffeelint"
   gem "dotenv-rails"
+  gem "draper"
   gem "factory_girl_rails"
   gem "faker"
   gem "fuubar", "~> 2.0.0.rc1"
