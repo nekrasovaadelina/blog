@@ -19,6 +19,8 @@ It's based on Rails 4 and Ruby 2.2.3.
 * [Simple Form](https://github.com/plataformatec/simple_form) for forms
 * [Responders](https://github.com/plataformatec/responders) to DRY controllers
 * [Decent Exposure](https://github.com/voxdolo/decent_exposure) to DRY controllers
+* [Draper](https://github.com/drapergem/draper) to decorate models for views
+* [Decent Decoration](https://github.com/netguru/decent_decoration) to extend Decent Exposure with Draper
 * [Interactors](https://github.com/collectiveidea/interactor) encapsulates application's business logic
 * [Pundit](https://github.com/elabs/pundit) to encapsulates authorization logic
 * [Kaminari](https://github.com/amatsuda/kaminari) for pagination
@@ -158,4 +160,4 @@ Rails Base is maintained by [Timur Vafin](http://github.com/timurvafin).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/rails-base/contributors).
 
-[![Flatstack](https://avatars0.githubusercontent.com/u/15136?v=2&s=200)](http://www.flatstack.com)
+[<img src="http://www.flatstack.com/logo.svg" width="100"/>](http://www.flatstack.com)
