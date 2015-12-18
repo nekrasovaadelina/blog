@@ -13,15 +13,15 @@ class CommentsController < ApplicationController
     comment.user_id = current_user.id 
 
     if comment.save
-      redirect_to article_path(article), notice: "Comment was successfully created."
+      respond_with(comment, location: article_path(article))
     else
-      redirect_to article_path(article), notice: comment.errors.full_messages.join(", ")
+      redirect_to article_path(article), alert: comment.errors.full_messages.join(", ")
     end
   end
 
   def destroy
     comment.destroy
-    redirect_to article_path(article), notice: "Comment was successfully destroyed."
+    respond_with(comment, location: article_path(article))
   end
 
   private

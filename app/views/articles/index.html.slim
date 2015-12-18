@@ -3,7 +3,7 @@
 
 .row
   .medium-6.columns
-    = render articles.includes(:user)
+    = render articles
 
   .medium-6.columns.end
     - if user_signed_in?

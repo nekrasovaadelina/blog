@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # expose_decorated(:article)
   # expose_decorated(:articles)
   expose(:article)
-  expose(:articles)
+  expose(:articles) { |default| default.includes(:user) }
 
   def create
     article = Article.new(article_params)
