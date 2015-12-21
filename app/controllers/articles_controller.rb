@@ -1,39 +1,49 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  expose_decorated(:article)
+  expose_decorated(:article, attributes: :article_params) 
   expose_decorated(:articles) { |default| default.includes(:user) }
-  expose_decorated(:comment)
-  expose_decorated(:comments, ancestor: :article) 
+  expose_decorated(:comment) { article.comments.build }
+
+  def new
+  end
 
   def create
-    article = Article.new(article_params)
     article.user = current_user
     article.save
 
     respond_with(article)
   end
 
+  def edit
+  end
+
   def update
-    article.update(article_params)
+    article.save
       
     respond_with(article)
   end
 
+  def index
+  end
+
+  def show
+  end
+
   def destroy
     article.destroy
-    
+
     respond_with(article)
   end
 
   private
 
     def authorize_user!
-      redirect_to(root_path) unless ArticlePolicy.new(current_user, article).manage?   
+      authorize(article, :manage?)  
     end
 
     def article_params
-      params.require(:article).permit(:title, :text, :user_id)
+      params.require(:article).permit(:title, :text)
     end
 end

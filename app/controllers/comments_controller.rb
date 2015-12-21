@@ -3,11 +3,10 @@ class CommentsController < ApplicationController
   before_action :authorize_user!, only: :destroy
   
   expose_decorated(:article)
-  expose_decorated(:comment)
-  expose_decorated(:comments) { article.comments }
+  expose_decorated(:comment, attributes: :comment_params)
 
   def create
-    comment = article.comments.create(comment_params)
+    comment.article = article # ask
     comment.user = current_user 
     comment.save
     
@@ -22,10 +21,10 @@ class CommentsController < ApplicationController
   private
 
     def authorize_user!
-      redirect_to(root_path) unless CommentPolicy.new(current_user, comment).manage?   
+      authorize(comment, :manage?)   
     end
     
     def comment_params
-      params.require(:comment).permit(:text, :user_id, :article_id)
+      params.require(:comment).permit(:text)
     end
 end
