@@ -1,31 +1,29 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :authorize_user!, only: [:edit, :update, :destroy] 
-  # expose_decorated(:article)
-  # expose_decorated(:articles)
-  expose(:article)
-  expose(:articles) { |default| default.includes(:user) }
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+
+  expose_decorated(:article)
+  expose_decorated(:articles) { |default| default.includes(:user) }
+  expose_decorated(:comment)
+  expose_decorated(:comments, ancestor: :article) 
 
   def create
     article = Article.new(article_params)
-    article.user_id = current_user.id
-    if article.save
-      respond_with(article)
-    else
-      redirect_to new_article_path, alert: article.errors.full_messages.join(", ")
-    end
+    article.user = current_user
+    article.save
+
+    respond_with(article)
   end
 
   def update
-    if article.update(article_params)
-      respond_with(article)
-    else
-      redirect_to edit_article_path, alert: article.errors.full_messages.join(", ")
-    end
+    article.update(article_params)
+      
+    respond_with(article)
   end
 
   def destroy
     article.destroy
+    
     respond_with(article)
   end
 

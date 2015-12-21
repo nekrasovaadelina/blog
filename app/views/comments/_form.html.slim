@@ -1,6 +1,6 @@
-= simple_form_for ([article, article.comments.build]) do |f|
+= simple_form_for ([article, comment]) do |f|
   .form-inputs
-    = f.input :text, required: false
+    = f.input :text, required: true
 
   .form-actions
     = f.button :submit, "Add comment"

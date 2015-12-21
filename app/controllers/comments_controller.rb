@@ -1,22 +1,17 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: :destroy
-  # expose_decorated(:article)
-  # expose_decorated(:comment)
-  # expose_decorated(:comments) {article.comments}
-  expose(:article)
-  expose(:comment)
-  expose(:comments) { article.comments }
+  
+  expose_decorated(:article)
+  expose_decorated(:comment)
+  expose_decorated(:comments) { article.comments }
 
   def create
     comment = article.comments.create(comment_params)
-    comment.user_id = current_user.id 
-
-    if comment.save
-      respond_with(comment, location: article_path(article))
-    else
-      redirect_to article_path(article), alert: comment.errors.full_messages.join(", ")
-    end
+    comment.user = current_user 
+    comment.save
+    
+    respond_with(comment, location: article_path(article))
   end
 
   def destroy

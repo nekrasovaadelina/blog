@@ -1,10 +1,7 @@
 strong' Comment:
 p = comment.text
-| Posted by
-'
-= comment.user
+= comment.published_at
 br
-/= comment.published_at
 -if user_signed_in? && policy(comment).manage?
   =' link_to "Delete", [comment.article, comment],
             method: :delete,

@@ -1,7 +1,8 @@
-= simple_form_for(article) do |f|
-
-  .form_inputs
-    = f.input :title, required: false
-    = f.input :text, required: false
-  .form-actions
-    = f.button :submit, "Submit"
+.row
+  .medium-6.columns
+    = simple_form_for(article) do |f|
+      .form_inputs
+        = f.input :title, required: true
+        = f.input :text, required: true
+      .form-actions
+        = f.button :submit, "Submit"

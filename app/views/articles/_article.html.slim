@@ -2,11 +2,7 @@ h2 = article.title
 .text
   = article.text
   br
-  /= article.published_at
-  br
-  | Posted by
-  '
-  = article.user
+  = article.published_at
 =' link_to "Show", article
 - if user_signed_in? && policy(article).manage?
   =' link_to "Edit", edit_article_path(article)
