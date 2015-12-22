@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  expose_decorated(:article, attributes: :article_params) 
+  expose_decorated(:article, attributes: :article_params)
   expose_decorated(:articles) { |default| default.includes(:user) }
   expose_decorated(:comment) { article.comments.build }
 
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 
   def update
     article.save
-      
+
     respond_with(article)
   end
 
@@ -39,11 +39,11 @@ class ArticlesController < ApplicationController
 
   private
 
-    def authorize_user!
-      authorize(article, :manage?)  
-    end
+  def authorize_user!
+    authorize(article, :manage?)
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :text)
-    end
+  def article_params
+    params.require(:article).permit(:title, :text)
+  end
 end
