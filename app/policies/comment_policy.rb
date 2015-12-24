@@ -7,6 +7,6 @@ class CommentPolicy
   end
 
   def manage?
-    @user.id == @comment.user_id
+    user == comment.user
   end
 end

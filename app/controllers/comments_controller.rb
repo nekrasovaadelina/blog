@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   expose_decorated(:comment, attributes: :comment_params)
 
   def create
-    comment.article = article # ask
+    comment.article = article
     comment.user = current_user
     comment.save
 

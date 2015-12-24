@@ -3,7 +3,9 @@
 
 .row
   .medium-6.columns
-    = render articles
+    = render(articles)
+    br
+    = paginate articles.object
 
   .medium-6.columns.end
     - if user_signed_in?
@@ -11,10 +13,10 @@
       br
       | Tell us!
       '
-      = link_to "New article", new_article_path
+      = link_to "New article", new_user_article_path
     - else
       | Please
       '
-      =' link_to "Sign in", new_user_session_path
+      = link_to "Sign in ", new_user_session_path
       | to create your own articles
 

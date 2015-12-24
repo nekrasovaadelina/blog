@@ -440,7 +440,6 @@ DEPENDENCIES
   letter_opener
   memory_profiler
   metamagic
-  mysql2
   newrelic_rpm
   pg
   pry-rails

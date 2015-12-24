@@ -4,7 +4,7 @@
 .row
   h3 Comments
   .medium-6.columns
-    = render article.comments 
+    = render comments 
 
     - if user_signed_in?
 
@@ -14,8 +14,8 @@
     - else
       | Please
       '
-      =' active_link_to "Sign in", new_user_session_path
+      = active_link_to "Sign in ", new_user_session_path
       | to add comments
       br
-    =' link_to "Back", articles_path
+    = link_to "Back", articles_path
 

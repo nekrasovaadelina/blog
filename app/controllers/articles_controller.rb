@@ -1,29 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :authorize_user!, only: [:edit, :update, :destroy]
-
   expose_decorated(:article, attributes: :article_params)
-  expose_decorated(:articles) { |default| default.includes(:user) }
+  expose_decorated(:articles) { |scope| fetch_articles(scope) } # ask right name
   expose_decorated(:comment) { article.comments.build }
-
-  def new
-  end
-
-  def create
-    article.user = current_user
-    article.save
-
-    respond_with(article)
-  end
-
-  def edit
-  end
-
-  def update
-    article.save
-
-    respond_with(article)
-  end
+  expose_decorated(:comments, ancestor: :article) { |scope| fetch_comments(scope) } # here too
 
   def index
   end
@@ -31,19 +10,13 @@ class ArticlesController < ApplicationController
   def show
   end
 
-  def destroy
-    article.destroy
-
-    respond_with(article)
-  end
-
   private
 
-  def authorize_user!
-    authorize(article, :manage?)
+  def fetch_articles(scope)
+  	scope.includes(:user).order(created_at: :desc).page(params[:page]).per(2)
   end
 
-  def article_params
-    params.require(:article).permit(:title, :text)
+  def fetch_comments(scope)
+  	scope.includes(:user).order(:created_at)
   end
 end
