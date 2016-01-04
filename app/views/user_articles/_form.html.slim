@@ -1,6 +1,6 @@
 .row
   .medium-6.columns
-    = simple_form_for(article.object, url: user_articles_path) do |f|
+    = simple_form_for([:user, article.object]) do |f|
       .form_inputs
         = f.input :title
         = f.input :text
