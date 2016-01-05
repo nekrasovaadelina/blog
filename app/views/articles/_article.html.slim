@@ -3,7 +3,7 @@ h2 = article.title
   = article.text
   br
   = article.published_at
-=' link_to "Show", article_path(article)
+= link_to "Show ", article_path(article)
 - if user_signed_in? && policy(article.object).manage?
-  =' link_to "Edit", edit_article_path(article)
-  =' link_to "Delete", article_path(article), method: :delete
+  = link_to "Edit ", edit_user_article_path(article)
+  = link_to "Delete", user_article_path(article), method: :delete

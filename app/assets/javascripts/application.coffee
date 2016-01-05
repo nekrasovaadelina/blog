@@ -16,3 +16,4 @@ $(document).foundation()
 
 () ->
   $(document).foundation()
+ 
