@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    #render "comments/create.js.slim"
   end
 
   private

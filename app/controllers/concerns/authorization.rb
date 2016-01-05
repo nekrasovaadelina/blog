@@ -10,5 +10,6 @@ module Authorization
 
   def user_not_authorized
     redirect_to(root_path)
+    flash[:notice] = "Authorization error"
   end
 end

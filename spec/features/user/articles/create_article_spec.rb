@@ -12,13 +12,13 @@ feature "Create article" do
 		fill_form(:user, attributes_for(:article))
 		click_on "Submit"
 
-		expect(page).to have_text("Article was successfully created")
+		expect(page).to have_content("Article was successfully created")
 	end
 
 	scenario "User creates a new article with invalid data" do
 		fill_form(:user, title: "", text: "")
 		click_on "Submit"
 
-		expect(page).to have_text("can't be blank")
+		expect(page).to have_content("can't be blank")
 	end
 end

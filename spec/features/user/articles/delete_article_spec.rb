@@ -4,13 +4,11 @@ feature "Delete Article" do
 	let(:user) { create :user }
 	let(:user_two) { create :user }
 	let(:article) { create :article, user: user }
-
-	background do
-		visit article_path(article)
-	end
 	
 	scenario "User tries to delete his article" do
 		login_as user
+		visit article_path(article)
+		
 		click_on "Delete"
 
 		expect(page).to have_text("Article was successfully destroyed")
@@ -18,8 +16,8 @@ feature "Delete Article" do
 
 	scenario "User tries to delete not his article" do
 		login_as user_two
-		click_on "Delete"
+		visit article_path(article)
 
-		expect(page).to have_content(article.title) # ask
+		expect(page).not_to have_content("Delete")
 	end
 end
