@@ -16,7 +16,7 @@ feature "Create article" do
 	end
 
 	scenario "User creates a new article with invalid data" do
-		fill_form(:user, title: "simple title", text: "")
+		fill_form(:user, title: "", text: "")
 		click_on "Submit"
 
 		expect(page).to have_text("can't be blank")

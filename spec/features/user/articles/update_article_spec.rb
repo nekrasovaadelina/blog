@@ -7,18 +7,18 @@ feature "Update Article" do
 
 	background do
 		login_as user
-		visit edit_article_path(article)
+		visit edit_user_article_path(article)
 	end
 	
 	scenario "User edit an article with valid data" do
-		fill_form(:article, title: "simple title", text: "simple text")
+		fill_form(:user, attributes_for(:article))
 		click_on "Submit"
 
 		expect(page).to have_content("Article was successfully updated")
 	end
 
 	scenario "User edit an article with invalid data" do
-		fill_form(:article, title: "simple title", text: "")
+		fill_form(:article, title: "", text: "")
 		click_on "Submit"
 
 		expect(page).to have_content("can't be blank")
@@ -26,8 +26,8 @@ feature "Update Article" do
 
 	scenario "User tries to edit not his article" do
 		login_as user_two
-		visit edit_article_path(article)
+		visit edit_user_article_path(article)
 
-		expect(page).to have_content("New article") # ask
+		expect(page).to have_content("New article") # ask if I can do that way
 	end
 end

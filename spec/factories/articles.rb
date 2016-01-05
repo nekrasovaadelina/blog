@@ -1,6 +1,6 @@
 FactoryGirl.define do
 	factory :article do
-		title "Simple Title"
-		text "Simple Text"
+		title { Faker::Book.title }
+		text { Faker::Lorem.sentence }
 	end
 end
