@@ -10,12 +10,13 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.save
 
-    respond_with(comment, location: article_path(article))
+    render "comments/_comment", layout: false
   end
 
   def destroy
     comment.destroy
-    respond_with(comment, location: article_path(article))
+
+    render nothing: true, status: :ok
   end
 
   private

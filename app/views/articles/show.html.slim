@@ -3,8 +3,9 @@
 
 .row
   h3 Comments
-  .medium-6.columns
-    = render comments
+  .medium-6.column
+    .comments
+      = render comments
 
     - if user_signed_in?
 

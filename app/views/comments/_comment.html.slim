@@ -1,8 +1,9 @@
-strong Comment:
-p = comment.text
-= comment.published_at
-br
--if user_signed_in? && policy(comment.object).manage?
-  = link_to "Delete", article_comment_path(article, comment), method: :delete
+.comment-wrapper (data-id=comment.object.id)
+  strong Comment:
+  p = comment.text
+  = comment.published_at
   br
-br
+  - if user_signed_in? && policy(comment.object).manage?
+    = link_to "Delete", article_comment_path(article, comment),
+    class: 'comment-destroy', method: :delete, remote: true, data: { id: comment.object.id }
+  br
