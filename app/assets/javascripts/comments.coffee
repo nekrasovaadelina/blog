@@ -3,8 +3,10 @@ class Comment
     @bindEvents()
 
   bindEvents: =>
-    $(document).on "ajax:success", ".comment-destroy", @destroyComment
-    $(document).on "ajax:success", ".comment-form", @addComment
+    $(document).on "ajax:success", "[data-behavior='comment_destroy']",
+    @destroyComment
+    $(document).on "ajax:success", "[data-behavior='comment-form']",
+    @addComment
 
   destroyComment: (event) =>
     comment_id = $(event.currentTarget).data("id")
