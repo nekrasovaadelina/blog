@@ -12,7 +12,8 @@
 #= require_tree ../templates
 #= require_tree .
 
-$(document).foundation()
-
-() ->
+$ ->
   $(document).foundation()
+
+  if $(".comments-container").length
+    window.CommentsManager = new CommentsManager #Vladimir's advice

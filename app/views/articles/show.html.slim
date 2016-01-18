@@ -2,9 +2,9 @@
   = render article
 
 .row
-  h3 Comments
   .medium-6.columns
-    .comments
+    .comments-container
+      h3 Comments
       = render comments
 
     - if user_signed_in?
