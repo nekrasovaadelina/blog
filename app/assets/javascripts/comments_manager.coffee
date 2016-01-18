@@ -1,19 +1,22 @@
-class @CommentsManager
+class CommentsManager
+  ui:
+    commentForm: $("[data-behavior='comment-form']")
+    destroyLink: $("[data-behavior='comment-destroy']")
+
   constructor: ->
-    @bindEvents()
+    @_bindEvents()
 
-  bindEvents: =>
-    $(document).on "ajax:success",
-                   "[data-behavior='comment_destroy']",
-                   @destroyComment
-    $(document).on "ajax:success",
-                   "[data-behavior='comment-form']",
-                   @addComment
+  _bindEvents: =>
+    $(document).on "ajax:success", @ui.destroyLink, @_destroyComment
+    $(document).on "ajax:success", @ui.commentForm, @_addComment
 
-  destroyComment: (event) =>
+  _destroyComment: (event) =>
     comment_id = $(event.currentTarget).data("id")
     $(".comment-wrapper[data-id='#{comment_id}']").remove()
 
-  addComment: (event, data, status, xhr) =>
+  _addComment: (event, data, status, xhr) =>
     $(".comments-container").append xhr.responseText
-    $(".comment-form").find("#comment_text").val('')
+    @ui.commentForm.find("#comment_text").val('')
+
+if $("[data-behavior='comments']").length
+  new CommentsManager

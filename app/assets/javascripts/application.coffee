@@ -14,6 +14,3 @@
 
 $ ->
   $(document).foundation()
-
-  if $(".comments-container").length
-    window.CommentsManager = new CommentsManager #Vladimir's advice
