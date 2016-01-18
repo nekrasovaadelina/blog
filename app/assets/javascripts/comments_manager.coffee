@@ -1,7 +1,7 @@
 class CommentsManager
   ui:
-    commentForm: $("[data-behavior='comment-form']")
-    destroyLink: $("[data-behavior='comment-destroy']")
+    commentForm: "[data-behavior='comment-form']"
+    destroyLink: "[data-behavior='comment-destroy']"
 
   constructor: ->
     @_bindEvents()
@@ -16,7 +16,7 @@ class CommentsManager
 
   _addComment: (event, data, status, xhr) =>
     $(".comments-container").append xhr.responseText
-    @ui.commentForm.find("#comment_text").val('')
+    $(@ui.commentForm).find("#comment_text").val('')
 
 if $("[data-behavior='comments']").length
   new CommentsManager
