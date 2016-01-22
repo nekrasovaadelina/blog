@@ -2,6 +2,8 @@ class CommentsManager
   ui:
     commentForm: "[data-behavior='comment-form']"
     destroyLink: "[data-behavior='comment-destroy']"
+    comments: "[data-behavior='comments']"
+    commentWrapper: "[data-behavior='comment-wrapper']"
 
   constructor: ->
     @_bindEvents()
@@ -12,10 +14,10 @@ class CommentsManager
 
   _destroyComment: (event) =>
     comment_id = $(event.currentTarget).data("id")
-    $(".comment-wrapper[data-id='#{comment_id}']").remove()
+    $("#{@ui.commentWrapper}[data-id='#{comment_id}']").remove()
 
   _addComment: (event, data, status, xhr) =>
-    $(".comments-container").append xhr.responseText
+    $(@ui.comments).append xhr.responseText
     $(@ui.commentForm).find("#comment_text").val('')
 
 if $("[data-behavior='comments']").length
