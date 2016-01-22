@@ -2,9 +2,10 @@
   = render article
 
 .row
-  h3 Comments
   .medium-6.columns
-    = render comments
+    .comments-container (data-behavior="comments")
+      h3 Comments
+      = render comments
 
     - if user_signed_in?
 
@@ -18,4 +19,3 @@
       | to add comments
       br
     = link_to "Back", articles_path
-
