@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create destroy)
   end
   resources :user_articles, only: %i(new create edit update destroy)
+  resources :user, only: :show
 end
