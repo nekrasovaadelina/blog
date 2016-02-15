@@ -3,7 +3,7 @@ h2 = article.title
   = article.text
   br
   ' Published by
-  = link_to article.user_full_name, user_path(id: article.author)
+  = link_to article.user_name, user_path(id: article.author)
   = " at #{article.created_at.to_s(:short)}"
 = link_to "Show ", article_path(article)
 - if user_signed_in? && policy(article.object).manage?

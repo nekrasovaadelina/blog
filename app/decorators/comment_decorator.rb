@@ -1,7 +1,7 @@
 class CommentDecorator < ApplicationDecorator
   delegate :text, :created_at
 
-  def user_full_name
+  def user_name
     user.full_name
   end
 

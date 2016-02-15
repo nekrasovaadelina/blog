@@ -2,7 +2,7 @@ class ArticleDecorator < ApplicationDecorator
   delegate :title, :text, :created_at
   delegate :id, :full_name, to: :user, prefix: :user
 
-  def user_full_name
+  def user_name
     user.full_name
   end
 

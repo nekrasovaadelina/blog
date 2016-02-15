@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Show user profile" do
   let(:user) { create :user }
-  let!(:article) { create :article, user: user}
+  let!(:article) { create :article, user: user }
 
   background do
     login_as(user)

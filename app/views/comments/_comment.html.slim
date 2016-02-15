@@ -2,7 +2,7 @@
   strong Comment:
   p = comment.text
   ' Published by
-  = link_to comment.user_full_name, user_path(id: comment.author)
+  = link_to comment.user_name, user_path(id: comment.author)
   = " at #{comment.created_at.to_s(:short)}"
   br
   - if user_signed_in? && policy(comment.object).manage?
