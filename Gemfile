@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.3"
+ruby "2.2.4"
+
+gem "rails", "4.2.5.1"
 gem "pg"
 
 # assets
@@ -26,6 +28,7 @@ gem "decent_exposure"
 gem "devise"
 gem "draper"
 gem "google-analytics-rails"
+gem "health_check"
 gem "interactor"
 gem "fast_stack"
 gem "flamegraph"

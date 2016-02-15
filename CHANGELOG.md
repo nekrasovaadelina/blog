@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- Show 2 slowest specs during specs run [#415](https://github.com/fs/rails-base/pull/415) [#410](https://github.com/fs/rails-base/pull/410/files)
+- Upgrade Rails to 4.2.5.1
+- Update [devise gem](https://github.com/plataformatec/devise)
+- Removed wrong underfield hint on sign_up page
+- Fix flash messages at new password and email confirmation sending
+- Install [health_check](https://github.com/ianheggie/health_check)
+- Fix alerts closing button on iOs devices
+- Update [simple_form gem](https://github.com/plataformatec/simple_form)
+- User factory generate confirmed user by default
+- Upgrade Ruby to 2.2.4
+- Upgrade Rails to 4.2.5
+- Update [nokogiri gem](https://github.com/sparklemotion/nokogiri)
+
 ## 1.7 - 2015-11-27
 
 - Introduce [Draper](https://github.com/drapergem/draper) for presenting models into views
