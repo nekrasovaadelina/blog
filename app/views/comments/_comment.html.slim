@@ -1,7 +1,9 @@
 .comment-wrapper (data-behavior='comment-wrapper', data-id=comment.object.id)
   strong Comment:
   p = comment.text
-  = comment.published_at
+  ' Published by
+  = link_to comment.user_name, user_path(id: comment.author)
+  = " at #{comment.created_at.to_s(:short)}"
   br
   - if user_signed_in? && policy(comment.object).manage?
     = link_to "Delete", article_comment_path(article, comment),

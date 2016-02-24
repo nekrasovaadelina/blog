@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   private
 
   def fetch_articles(scope)
-    scope.includes(:user).order(created_at: :desc).page(params[:page]).per(2)
+    scope.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def fetch_comments(scope)
