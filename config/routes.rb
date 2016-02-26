@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   resources :user_articles, only: %i(new create edit update destroy)
   resources :user, only: :show
+
+  match "/about_us" => "shared#about_us", via: :get
 end
