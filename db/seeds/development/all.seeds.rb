@@ -1,5 +1,5 @@
 10.times do |id|
-  FactoryGirl.create(:user, :confirmed, email: "user#{id + 1}@example.com")
+  FactoryGirl.create(:user, email: "user#{id + 1}@example.com")
   FactoryGirl.create(:article, user: User.find(id + 1))
 end
 
