@@ -1,13 +1,17 @@
 class CommentDecorator < ApplicationDecorator
-  delegate :text
+  delegate :text, :created_at
 
-  def published_at
-    "Published by #{user.full_name} at #{object.created_at.to_s(:short)}"
+  def user_name
+    user.full_name
+  end
+
+  def author
+    comment.user.id
   end
 
   private
 
   def user
-    object.user.decorate
+    comment.user.decorate
   end
 end
