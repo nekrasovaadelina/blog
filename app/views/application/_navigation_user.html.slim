@@ -2,7 +2,7 @@ ul.right
   = active_link_to "About us", about_us_path, active: :exclusive, wrap_tag: :li
   - if user_signed_in?
     li.has-dropdown
-      a.user-dropdown(href="#") = current_user.full_name_with_email
+      a.user-dropdown = link_to current_user.full_name_with_email, user_path(current_user)
       ul.dropdown
         new_user_registration_path
         li

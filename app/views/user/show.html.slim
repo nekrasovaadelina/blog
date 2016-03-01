@@ -1,10 +1,8 @@
 .row
-  .profile-picture
-
   .profile-information
     h2 = user.full_name
     = image_tag user.avatar.url(:medium)
-  - if user_signed_in?
-    .contacts
-      ' User email:
-      = link_to user.email, user.object
+    - if user_signed_in?
+      .contacts
+        ' User email:
+        = link_to user.email, user.object
