@@ -3,6 +3,7 @@
 
   .profile-information
     h2 = user.full_name
+    = image_tag user.avatar.url(:medium)
   - if user_signed_in?
     .contacts
       ' User email:

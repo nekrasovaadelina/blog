@@ -7,6 +7,10 @@ if [ "$CI" ]; then
   BUNDLER_ARGS="--without development staging production"
 fi
 
+if [ -d "public/system" ]; then
+  rm -rf public/system
+fi
+
 # Make sure we have Bundler installed
 gem install bundler --conservative
 

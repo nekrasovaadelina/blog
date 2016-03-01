@@ -4,6 +4,7 @@ FactoryGirl.define do
     full_name { Faker::Name.name }
     password "123456"
     password_confirmation { password }
+    avatar { File.new("#{Rails.root}/app/assets/images/avatars/default.jpg") }
     confirmed_at 1.hour.ago
   end
 
