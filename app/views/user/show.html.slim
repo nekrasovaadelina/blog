@@ -1,9 +1,0 @@
-.row
-  .profile-picture
-
-  .profile-information
-    h2 = user.full_name
-  - if user_signed_in?
-    .contacts
-      ' User email:
-      = link_to user.email, user.object

@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: c38bb3168a9530514d866fc674c335e05e543a5e
+  specs:
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
+
+GIT
   remote: https://github.com/jfirebaugh/skim
   revision: 643ac287b59b40ba8579ae5e0214bf8a8d8a8f28
   specs:
@@ -90,6 +101,10 @@ GEM
       capybara (>= 2.3.0, < 2.6.0)
       json
     choice (0.2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     code_analyzer (0.4.5)
       sexp_processor
     codeclimate-test-reporter (0.4.8)
@@ -200,11 +215,15 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mail_form (1.5.1)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     memory_profiler (0.9.6)
     metamagic (3.1.7)
       rails (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.99)
+    mimemagic (0.3.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.0)
@@ -287,16 +306,16 @@ GEM
       railties (>= 4.2.0, < 5.1)
     rollbar (2.3.0)
       oj (~> 2.12.14)
-    rspec (3.0.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.2)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.2)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.3)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.0)
+    rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-rails (3.4.0)
@@ -440,9 +459,11 @@ DEPENDENCIES
   kaminari
   launchy
   letter_opener
+  mail_form
   memory_profiler
   metamagic
   newrelic_rpm
+  paperclip!
   pg
   pry-rails
   puma

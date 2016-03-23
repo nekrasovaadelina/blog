@@ -4,5 +4,6 @@
 end
 
 100.times do |comment_id|
-  FactoryGirl.create(:comment, user: User.find(comment_id / 10 + 1), article: Article.find(comment_id % 10 + 1))
+  FactoryGirl.create(:comment, user: User.find(comment_id / 10 + 1),
+    article: Article.find(comment_id % 10 + 1))
 end

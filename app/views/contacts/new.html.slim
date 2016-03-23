@@ -1,0 +1,12 @@
+.row
+  h1 Contact Us
+
+  .contact-form
+    .medium-6.columns
+      = simple_form_for(contact) do |f|
+        .form-inputs
+          = f.input :name, required: true
+          = f.input :email, required: true
+          = f.input :message, as: :text, required: true
+        .form-actions
+          = f.button :submit, "Send message"
