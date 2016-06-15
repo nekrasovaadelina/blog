@@ -5,7 +5,7 @@
   .medium-6.columns
     = render(articles)
     br
-    = paginate articles.object
+    = paginate articles
 
   .medium-6.columns.end
     - if user_signed_in?

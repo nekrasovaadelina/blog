@@ -19,6 +19,6 @@ feature "Create article" do
     fill_form(:user, title: "", text: "")
     click_on "Submit"
 
-    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("Article could not be created")
   end
 end

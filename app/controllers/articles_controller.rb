@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  expose_decorated(:article, attributes: :article_params)
+  expose_decorated(:article)
   expose_decorated(:articles) { |scope| fetch_articles(scope) }
   expose_decorated(:comment) { article.comments.build }
   expose_decorated(:comments, ancestor: :article) { |scope| fetch_comments(scope) }

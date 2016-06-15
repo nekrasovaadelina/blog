@@ -5,7 +5,7 @@
   = link_to comment.user_name, user_path(id: comment.author)
   = " at #{comment.created_at.to_s(:short)}"
   br
-  - if user_signed_in? && policy(comment.object).manage?
+  - if user_signed_in? && policy(comment).manage?
     = link_to "Delete", article_comment_path(article, comment),
     class: 'comment-destroy', method: :delete, remote: true,
     data: { id: comment.object.id, behavior: "comment-destroy" }
