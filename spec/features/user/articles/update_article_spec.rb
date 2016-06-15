@@ -22,7 +22,7 @@ feature "Update Article" do
     fill_form(:article, title: "", text: "")
     click_on "Submit"
 
-    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("Article could not be updated")
   end
 
   scenario "User tries to edit not his article" do
