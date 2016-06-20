@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :user_articles, only: %i(new create edit update destroy)
   resources :users, only: :show
-  resources :contacts, only: %i(new create)
 
-  match "/about_us" => "shared#about_us", via: :get
+  get "about_us", to: "pages#about_us"
+  get "contact_us", to: "pages#contact_us"
+  post "contact_admin", to: "pages#contact_admin"
 end

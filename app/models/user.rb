@@ -8,12 +8,4 @@ class User < ActiveRecord::Base
   has_many :comments
 
   mount_uploader :avatar, AvatarUploader
-
-  def to_s
-    full_name
-  end
-
-  def full_name_with_email
-    "#{self[:full_name]} (#{email})"
-  end
 end

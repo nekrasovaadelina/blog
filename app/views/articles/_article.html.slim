@@ -1,6 +1,6 @@
 h2 = article.title
 .text
-  = article.text
+  => article.text
   br
   ' Published by
   = link_to article.user_name, user_path(id: article.author)
