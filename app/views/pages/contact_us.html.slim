@@ -3,7 +3,7 @@
 
   .contact-form
     .medium-6.columns
-      = simple_form_for(contact) do |f|
+      = simple_form_for(:contact, url: contact_admin_path) do |f|
         .form-inputs
           = f.input :name, required: true
           = f.input :email, required: true

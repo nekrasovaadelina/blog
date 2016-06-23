@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.save
 
-    render partial: "comments/comment"
+    render partial: "comment"
   end
 
   def destroy
