@@ -15,7 +15,7 @@ In this application you can:
 
 ## Staging
 
-(https://dimafed-blog.herokuapp.com/)
+https://dimafed-blog.herokuapp.com
 
 
 ## Credits
