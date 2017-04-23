@@ -9,11 +9,12 @@
 
   .medium-6.columns.end
     - if user_signed_in?
-      | Something interesting?
-      br
-      | Tell us!
-      '
-      = link_to "New article", new_user_article_path
+      - if policy(article).manage?  
+        | Something interesting?
+        br
+        | Tell us!
+        '
+        = link_to "New article", new_user_article_path
     - else
       | Please
       '

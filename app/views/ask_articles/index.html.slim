@@ -1,0 +1,22 @@
+.row
+  h1 align="center" Articles
+
+.row
+  .medium-6.columns
+    = render(ask_articles)
+    br
+    = paginate ask_articles
+
+  .medium-6.columns.end
+    - if user_signed_in?  
+      | Something interesting?
+      br
+      | Tell us!
+      '
+      = link_to "New article", new_user_ask_article_path
+    - else
+      | Please
+      '
+      = link_to "Sign in ", new_user_session_path
+      | to create your own articles
+

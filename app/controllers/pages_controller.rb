@@ -17,6 +17,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def main_page
+  end
+
   private
 
   def contact_params

@@ -1,4 +1,4 @@
-class ArticlePolicy < ApplicationPolicy
+class AskArticlePolicy < ApplicationPolicy
   def manage?
     user.roles == "admin"
   end

@@ -1,12 +1,32 @@
 nav.top-bar( data-topbar )
-
-  ul.title-area
-    li.name
-      h1 = link_to "Home", root_path
-    li.toggle-topbar
-      a(href="/")
-        i.fi-list
-
   section.top-bar-section
-    = render "navigation_main"
+    ul.left
+     = active_link_to "Home", root_path, active: :exclusive, wrap_tag: :li
+    ul.left
+      = active_link_to "Blog", articles_path, active: :exclusive, wrap_tag: :li
+    ul.left
+      = active_link_to "Gallery", "#", active: :exclusive, wrap_tag: :li
+    ul.left
+      = active_link_to  "Shop", "../home/adelina/Diplom/main/index.html", active: :exclusive, wrap_tag: :li
     = render "navigation_user"
+/nav#tf-menu.navbar.navbar-default
+/  .container
+/    /! Корректное отображение с телефона
+/    .navbar-header
+/      button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+/        span.sr-only Toggle navigation
+/        span.icon-bar
+/        span.icon-bar
+/        span.icon-bar
+/      a.navbar-brand.logo href="index.html"  Aryvejd
+/    /! Ссылки для кнопок в меню
+/    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+/      ul.nav.navbar-nav.navbar-left
+/        li
+/          = active_link_to "Home", root_path, active: :exclusive, wrap_tag: :li
+/        li
+/          = active_link_to "Blog", articles_path, active: :exclusive, wrap_tag: :li
+/        li
+/          = active_link_to "Gallery", "#", active: :exclusive, wrap_tag: :li    
+/        li
+/          = active_link_to  "Shop", "../home/adelina/Diplom/main/index.html", active: :exclusive, wrap_tag: :li

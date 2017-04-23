@@ -1,0 +1,21 @@
+.row
+  = render ask_article
+
+.row
+  .medium-6.columns
+    .comments-container (data-behavior="comments")
+      h3 Comments
+      = render comments
+
+    - if user_signed_in?
+
+      h3 Add comment
+      = render "comments/form"
+
+    - else
+      | Please
+      '
+      = active_link_to "Sign in ", new_user_session_path
+      | to add comments
+      br
+    = link_to "Back", ask_articles_path

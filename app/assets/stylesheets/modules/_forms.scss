@@ -33,7 +33,10 @@ legend {
 
 .form-actions {
   margin-top: 2rem;
+  button-color: #E88C0C;
 }
+
+
 
 .error {
   input {
@@ -82,4 +85,24 @@ legend {
 
 .button {
   white-space: normal;
+}
+
+.medium-6, .row {
+  color: #F5DA81;
+}
+
+h6 {
+  color: #F5DA81;
+}
+
+label {
+  color: #F7F498;
+}
+
+button, .button, button:hover, button:focus, .button:hover, .button:focus {
+  background-color: #E88C0C;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button), .top-bar-section li.active:not(.has-form) a:not(.button):hover {
+  background: #E88C0C;
 }

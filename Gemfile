@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.4"
+ruby "2.3.1"
 
 gem "rails", "4.2.5.1"
 gem "pg"
@@ -26,7 +26,7 @@ gem "slim"
 gem "carrierwave"
 gem "decent_decoration"
 gem "decent_exposure"
-gem "devise"
+gem "devise" # вот эта штука управляет регистрацией
 gem "draper"
 gem 'fog', require: 'fog/aws'
 gem "google-analytics-rails"
