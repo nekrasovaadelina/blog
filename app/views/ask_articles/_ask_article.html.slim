@@ -1,0 +1,11 @@
+h2 = ask_article.title
+.text
+  => ask_article.text
+  br
+  ' Published by
+  = link_to ask_article.user_name, user_path(id: ask_article.author)
+  = " at #{ask_article.created_at.to_s(:short)}"
+= link_to "Show ", ask_article_path(ask_article)
+- if user_signed_in? && policy(ask_article).creator?
+  = link_to "Edit ", edit_user_ask_article_path(ask_article)
+  = link_to "Delete", user_ask_article_path(ask_article), method: :delete

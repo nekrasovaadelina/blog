@@ -5,9 +5,12 @@ nav.top-bar( data-topbar )
     ul.left
       = active_link_to "Blog", articles_path, active: :exclusive, wrap_tag: :li
     ul.left
+      = active_link_to "Ask", ask_articles_path, active: :exclusive, wrap_tag: :li
+
+    ul.left
       = active_link_to "Gallery", "#", active: :exclusive, wrap_tag: :li
     ul.left
-      = active_link_to  "Shop", "../home/adelina/Diplom/main/index.html", active: :exclusive, wrap_tag: :li
+      = active_link_to  "Shop", "#", active: :exclusive, wrap_tag: :li
     = render "navigation_user"
 /nav#tf-menu.navbar.navbar-default
 /  .container

@@ -5,12 +5,12 @@
   .medium-6.columns
     .comments-container (data-behavior="comments")
       h3 Comments
-      = render comments
+      = render ask_comments
 
     - if user_signed_in?
 
       h3 Add comment
-      = render "comments/form"
+      = render "ask_comments/form"
 
     - else
       | Please

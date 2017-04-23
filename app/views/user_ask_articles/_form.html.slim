@@ -1,0 +1,8 @@
+.row
+  .medium-6.columns
+    = simple_form_for([:user, ask_article]) do |f|
+      .form_inputs
+        = f.input :title
+        = f.input :text
+      .form-actions
+        = f.button :submit, "Submit"

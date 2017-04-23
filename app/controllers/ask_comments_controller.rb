@@ -2,8 +2,8 @@ class AskCommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: :destroy
 
-  expose_decorated(:ask_article)
-  expose_decorated(:ask_comment, attributes: :ask_comment_params)
+  expose(:ask_article)
+  expose(:ask_comment, attributes: :ask_comment_params)
 
   def create
     ask_comment.ask_article = ask_article

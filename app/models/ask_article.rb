@@ -4,4 +4,13 @@ class AskArticle < ActiveRecord::Base
 
   validates :title, presence: true
   validates :text, presence: true
+
+
+  def user_name
+  	user.full_name
+  end
+
+  def author
+    user.id
+  end
 end

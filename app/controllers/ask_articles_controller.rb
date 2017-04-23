@@ -1,7 +1,7 @@
 class AskArticlesController < ApplicationController
   expose(:ask_article)
   expose(:ask_articles) { |scope| fetch_articles(scope) }
-  expose(:ask_comment) { ask_article.comments.build }
+  expose(:ask_comment) { ask_article.ask_comments.build }
   expose(:ask_comments, ancestor: :ask_article) { |scope| fetch_comments(scope) }
 
   def index

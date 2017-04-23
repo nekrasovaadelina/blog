@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :user_articles, only: %i(new create edit update destroy)
   resources :users, only: :show
   resources :ask_articles, only: %i(index show) do
-    resources :comments, only: %i(create destroy)
+    resources :ask_comments, only: %i(create destroy)
   end
 
   resources :user_ask_articles, only: %i(new create edit update destroy)

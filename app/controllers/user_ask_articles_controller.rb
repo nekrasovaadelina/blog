@@ -2,7 +2,7 @@ class UserAskArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: %i(edit update destroy)
 
-  expose(:ask_article, attributes: :article_params)
+  expose(:ask_article, attributes: :ask_article_params)
 
   def new
   end
